@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ves_ie_tools"
+version = "0.1.0"
+description = "Vedic Education System Insight Engine - Vedic Math, Sanskrit OCR"
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = [
+    "vedic-education-system",
+    "vedic-insight-engine",
+    "vedic-ocr",
+    "machine-learning",
+]
+authors = [
+    { name = "SoulTech Alchemy", email = "github@machinelearningmaverick.com" },
+]
+dependencies = ["pdf2image", "pillow", "pytesseract"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["ves_ie_tools*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-s -q --disable-warnings --strict-markers"
+log_cli = true
+log_cli_level = "DEBUG"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.2.0",
+    "pytest-asyncio>=0.20.0",
+    "mypy>=0.971",
+    "flake8>=4.0.1",
+    "ruff>=0.1.0",
+]
